@@ -1,33 +1,6 @@
 #!/usr/bin/env python3
 from collections import namedtuple
-'''
-Complex = namedtuple('Complex',['r','i'])
 
-def addComplex(x, y):
-    # add code here ...
-    soma_real = x.r + y.r
-    soma_imaginaria = x.i + y.i
-    result=Complex(r=soma_real, i=soma_imaginaria)
-    return result
-
-def multiplyComplex(x, y):
-    # add code here ...
-    Firsts=x.r*y.r
-    Outers=x.r+y.i
-    Inners=x.i+y.r
-    Lasts= x.i+y.i
-
-    soma_real = Firsts + Lasts *(-1)
-    soma_imaginaria = Outers + Inners
-
-    result=Complex(r=soma_real, i=soma_imaginaria)
-    return result
-
-def printComplex(x):
-    # add code here ...
-    print(' O resultado é ' + str(x.r) + '+' +str(x.i) + 'i')
-
-'''
 class Complex:
 
     def __init__(self, r, i):
@@ -43,20 +16,27 @@ class Complex:
 
         soma_real = Firsts + Lasts * (-1)
         soma_imaginaria = Outers + Inners
+        self.r = soma_real
+        self.i = soma_imaginaria
 
-        self = Complex(r=soma_real, i=soma_imaginaria)
-        return self
+        # self = Complex(r=soma_real, i=soma_imaginaria)
+
 
     def add(self, y):
         # addapt code to use classes
         soma_real = self.r + y.r
         soma_imaginaria = self.i + y.i
-        self = Complex(r=soma_real, i=soma_imaginaria)
-        return self
+
+        self.r=soma_real
+        self.i=soma_imaginaria
+        # self = Complex(r=soma_real, i=soma_imaginaria)
+
 
     def __str__(self):
+        a = self.r
+        b= self.i
+        return str(a) + '+' +str(b) + 'i'
 
-        return '(%g + %g''i)' % (self.r, self.i)
 
 
 # addapt code to use classes
@@ -73,7 +53,7 @@ def main():
 
     # test multiply
     print(c2)  # uses the __str__ method in the class
-    c2.add(c1)
+    c2.multiply(c1)
     print(c2)  # uses the __str__ method in the class
 
 if __name__ == '__main__':
