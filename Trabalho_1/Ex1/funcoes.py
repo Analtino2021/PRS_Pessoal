@@ -31,14 +31,13 @@ def right_letter(stop_key):
     hit_duration = []
     inputs_1 = []
     Total_inputs = {}
-    bob=[]
     number_of_hits = 0
     number_of_types = 0
     while True:
         test_start = ctime()
         key_to_press = chr(random.randint(ord('a'), ord('z')))
         inicio=tic()
-        print('Type letter '+ Fore.BLUE + str (key_to_press)+ Style.RESET_ALL )
+        print('Type letter '+ Fore.BLUE + str(key_to_press)+ Style.RESET_ALL )
         pressed_key = readchar.readkey()
         requested.append(key_to_press)
         inputs = namedtuple('inputs', 'requested received duration')
@@ -61,7 +60,7 @@ def right_letter(stop_key):
             fim = toc()
             test_end = ctime()
             number_of_types += 1
-            pressed_keys.append(pressed_key)
+            # pressed_keys.append(pressed_key)
             pressed_keys.append(pressed_key)
             received.append(pressed_key)
             duration.append(fim - inicio)
@@ -71,11 +70,12 @@ def right_letter(stop_key):
             inputs_1.append(bob)
 
         if pressed_key == stop_key:
-            print('You typed  ' + Fore.GREEN + Style.BRIGHT + pressed_key + Style.RESET_ALL + ' Terminatiing. ')
+            print('You typed  ' + Fore.GREEN + Style.BRIGHT + pressed_key + Style.RESET_ALL + ' Terminating. ')
             break
 
         if maximum_number == number_of_types:
-            print('Maximun Number achieved  ' + Fore.GREEN + Style.BRIGHT + str(number_of_types) + Style.RESET_ALL + ' Terminatiing. ')
+            print('Maximun Number achieved  ' + Fore.GREEN + Style.BRIGHT + str(number_of_types) + Style.RESET_ALL
+                  + ' Terminating. ')
             break
 
     # Analyse the list and count
@@ -95,26 +95,34 @@ def right_letter(stop_key):
     accuracy=(number_of_hits/number_of_types)*100
 
     type_average_duration = test_total_duration / maximum_number
-    type_hit_average_duration =test_hit_duration / number_of_hits
-    type_miss_average_duration = test_miss_duration / (number_of_types-number_of_hits)
+
+    if number_of_hits == 0:
+        type_hit_average_duration = 0
+    else:
+        type_hit_average_duration = test_hit_duration / number_of_hits
+
+    if (number_of_types-number_of_hits) == 0:
+        type_miss_average_duration = 0
+    else:
+        type_miss_average_duration = test_miss_duration / (number_of_types-number_of_hits)
 
     Total_inputs.update({'accuracy': accuracy, 'inputs': str(inputs_1),
     'number_of_hits': number_of_hits,
     'number_of_types': number_of_types,
-     'test_duration': test_total_duration,
-    'test_end': test_end,
+    'test_duration': test_total_duration,
     'test_start': test_start,
+    'test_end': test_end,
     'type_average_duration': type_average_duration,
     'type_hit_average_duration': type_hit_average_duration,
     'type_miss_average_duration': type_miss_average_duration
     })
 
-    pprint(json.dumps(Total_inputs,sort_keys=True,indent=2))
+    pprint(json.dumps(Total_inputs,sort_keys=False,indent=2))
 
 def main():
     ap= argparse.ArgumentParser(description='Process some integers.')
-    ap.add_argument('-mn', '--max_number', type=int, required=True, help = 'or maximun number of inputs for number of imputs mode  .')
-    ap.add_argument('-utm', '--use_time_mode',type=int, required=True, help = 'Max number of secs fot Time mode.')
+    ap.add_argument('-mn', '--max_number', type=int, required=True, help = 'or maximun number of inputs for number of inputs mode  .')
+    #ap.add_argument('-utm', '--use_time_mode',type=int, required=True, help = 'Max number of secs for Time mode.')
     args = vars(ap.parse_args())
     print(args)
     maximum_number = args['max_number']
