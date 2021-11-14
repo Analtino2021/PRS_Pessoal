@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/PRS_Pessoal.iml" filepath="$PROJECT_DIR$/.idea/PRS_Pessoal.iml" />
       <module fileurl="file://$PROJECT_DIR$/../PSR---TP1/.idea/PSR---TP1.iml" filepath="$PROJECT_DIR$/../PSR---TP1/.idea/PSR---TP1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PSR-TP2/.idea/PSR-TP2.iml" filepath="$PROJECT_DIR$/../PSR-TP2/.idea/PSR-TP2.iml" />
     </modules>
   </component>
 </project>
