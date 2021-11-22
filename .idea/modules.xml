@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Aula_5/Ex3/.idea/Ex3.iml" filepath="$PROJECT_DIR$/Aula_5/Ex3/.idea/Ex3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OptimizationUtils/.idea/OptimizationUtils.iml" filepath="$PROJECT_DIR$/../OptimizationUtils/.idea/OptimizationUtils.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/PRS_Pessoal.iml" filepath="$PROJECT_DIR$/.idea/PRS_Pessoal.iml" />
       <module fileurl="file://$PROJECT_DIR$/../PSR---TP1/.idea/PSR---TP1.iml" filepath="$PROJECT_DIR$/../PSR---TP1/.idea/PSR---TP1.iml" />
       <module fileurl="file://$PROJECT_DIR$/../PSR-TP2/.idea/PSR-TP2.iml" filepath="$PROJECT_DIR$/../PSR-TP2/.idea/PSR-TP2.iml" />

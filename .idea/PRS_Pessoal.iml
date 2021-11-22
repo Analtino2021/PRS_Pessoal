@@ -6,5 +6,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="PSR---TP1" />
     <orderEntry type="module" module-name="PSR-TP2" />
+    <orderEntry type="module" module-name="OptimizationUtils" />
+    <orderEntry type="module" module-name="Ex3" />
   </component>
 </module>
